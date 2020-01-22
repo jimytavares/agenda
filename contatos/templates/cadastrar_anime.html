@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h2>{ title_cad_anime }</h2>
+<form method="post" class="post-form">{% csrf_token %}
+    {{ form.as_ul }}
+    <button type="submit" class="save btn btn-primary"> enviaer </button>
+</form>
+
+{% endblock %}
+

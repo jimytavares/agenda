@@ -1,8 +1,16 @@
 from django import forms
-from .models import Contato
+from .models import Contato, CadastrarAnime
+
 
 class ContatoForm(forms.ModelForm):
     
     class Meta:
         model = Contato
         fields = ('nome_contato', 'telefone_1', 'telefone_2', 'email')
+        
+        
+class AnimeForm(forms.ModelForm):
+    
+    class Meta: 
+        model = CadastrarAnime
+        fields = ('nome_anime', 'temporada')

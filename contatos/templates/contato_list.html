@@ -22,7 +22,7 @@
                 <p><b>Telefone Segundario:</b> {{contato.telefone_2}}</p>
             </div>
             <div class="col">
-                <p><b></b|>Email:</b> {{contato.email}}</p>
+                <p> <b>Email:</b> {{contato.email}} </p>
             </div>
             <div class="col-1">
                 <p><a class="btn btn-warning" style="height:35px;" href="{% url 'contato_edit' pk=contato.pk %}">Editar</a> </p>
@@ -45,8 +45,8 @@
                     </button>
                   </div>
                   <div class="modal-footer">
-                    <button type="button" class="btn btn-success">Sim</button>
-                    <a type="button" class="btn btn-danger" href="{% url 'contato_del' pk=contato.pk %}" data-dismiss="modal"> Não </a>
+                    <button type="button" class="btn btn-success" data-dismiss="modal">Não</button>
+                    <a type="button" class="btn btn-danger" href="{% url 'contato_del' pk=contato.pk %}"> Sim </a>
                   </div>
                 </div>
               </div>

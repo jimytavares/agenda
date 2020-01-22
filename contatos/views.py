@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect, get_object_or_404
 #from django.http import HttpResponse
-from .models import Contato
-from .forms import ContatoForm
+from .models import Contato, CadastrarAnime
+from .forms import ContatoForm, AnimeForm
 
 # Create your views here.
 
@@ -34,5 +34,16 @@ def contato_edit(request, pk):
 
 def contato_del (request, pk):
     contato = get_object_or_404(Contato, pk=pk)
-    contato.delet()
+    contato.delete()
     return redirect(contato_list)
+
+def CadastrarAnime(request):
+    title_cad_anime = "Cadastro de Animes"
+    if request.method == "POST":
+        form = AnimeForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('cadastrar_anime')
+    else:
+        form = AnimeForm()        
+    return render(request, 'cadastrar_anime.html',{'form': form})

@@ -10,3 +10,12 @@ class Contato(models.Model):
 
     def __str__ (self):
         return self.nome_contato
+    
+    
+class CadastrarAnime(models.Model):
+    nome_anime = models.CharField(max_length=50, verbose_name='Nome Anime')
+    temporada = models.CharField(max_length=50, verbose_name='Temporada')
+    
+    def __str__ (self):
+        return self.nome_anime
+    
