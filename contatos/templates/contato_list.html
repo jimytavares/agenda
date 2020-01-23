@@ -3,60 +3,89 @@
 <div class="mb-4" id="accordion" role="tablist" aria-multiselectable="true">
           
   {% for contato in contatos %}
-
-  <div class="card">
-
-    <div class="card-header" role="tab" id="headingOne">
-      <h5 class="mb-0">
-        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne{{contato.pk}}" aria-expanded="true" aria-controls="collapseOne"> {{contato.nome_contato}} </a>
-      </h5>
-    </div>
-
-    <div id="collapseOne{{contato.pk}}" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
-      <div class="card-body" style="border-color:red !important;width:1000px !important, border:none;">
-          <div class="row">
-            <div class="col">
-                <p><b>Telefone Principal:</b> {{contato.telefone_1}}</p>
-            </div>
-            <div class="col">
-                <p><b>Telefone Segundario:</b> {{contato.telefone_2}}</p>
-            </div>
-            <div class="col">
-                <p> <b>Email:</b> {{contato.email}} </p>
-            </div>
-            <div class="col-1">
-                <p><a class="btn btn-warning" style="height:35px;" href="{% url 'contato_edit' pk=contato.pk %}">Editar</a> </p>
-                <!--<p><a class="btn btn-warning" style="height:35px;" href="{% url 'contato_edit' pk=contato.pk %}">{{ contato.pk }}</a> </p>-->
-            </div>
-            <div class="col">
-                <button type="button" style="height:35px;" class="btn btn-danger" data-toggle="modal" data-target="#exampleModalLong{{ contato.pk }}">
-                  Excluir
-                </button>
-                <!--<p><a class="btn btn-warning" style="height:35px;" href="{% url 'contato_edit' pk=contato.pk %}">{{ contato.pk }}</a> </p>-->
-            </div>
-        
-            <div class="modal fade" id="exampleModalLong{{ contato.pk }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-              <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Deseja Apagar Exluir <b>{{ contato.nome_contato }}</b>?</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-success" data-dismiss="modal">Não</button>
-                    <a type="button" class="btn btn-danger" href="{% url 'contato_del' pk=contato.pk %}"> Sim </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-        
+    
+    <tr>
+      <th scope="row"> {{contato.nome_contato}} </th>
+      <td> {{contato.telefone_1}} </td>
+      <td> {{contato.telefone_2}} </td>
+      <td> {{contato.email}} </td>
+      <td> <a class="btn btn-warning" style="height:35px;" href="{% url 'contato_edit' pk=contato.pk %}">Editar</a> </td>   
+      <td> <button type="button" style="height:35px;" class="btn btn-danger" data-toggle="modal" data-target="#exampleModalLong{{ contato.pk }}"> Excluir </button> </td>
+    </tr>
+    
+    <!-- Modal Excluir -->
+    <div class="modal fade" id="exampleModalLong{{ contato.pk }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Deseja Apagar Exluir <b>{{ contato.nome_contato }}</b>?</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
           </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-success" data-dismiss="modal">Não</button>
+            <a type="button" class="btn btn-danger" href="{% url 'contato_del' pk=contato.pk %}"> Sim </a>
+          </div>
+        </div>
       </div>
     </div>
+        
+    <!-- teste 
 
-  </div>
+      <div class="card">
+
+        <div class="card-header" role="tab" id="headingOne">
+          <h5 class="mb-0">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne{{contato.pk}}" aria-expanded="true" aria-controls="collapseOne"> {{contato.nome_contato}} </a>
+          </h5>
+        </div>
+
+          <div id="collapseOne{{contato.pk}}" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
+          <div class="card-body" style="border-color:red !important;width:1000px !important, border:none;">
+              <div class="row">
+                <div class="col">
+                    <p><b>Telefone Principal:</b> {{contato.telefone_1}}</p>
+                </div>
+                <div class="col">
+                    <p><b>Telefone Segundario:</b> {{contato.telefone_2}}</p>
+                </div>
+                <div class="col">
+                    <p> <b>Email:</b> {{contato.email}} </p>
+                </div>
+                <div class="col-1">
+                    <p><a class="btn btn-warning" style="height:35px;" href="{% url 'contato_edit' pk=contato.pk %}">Editar</a> </p>
+                    <!--<p><a class="btn btn-warning" style="height:35px;" href="{% url 'contato_edit' pk=contato.pk %}">{{ contato.pk }}</a> </p>
+                </div>
+                <div class="col">
+                    <button type="button" style="height:35px;" class="btn btn-danger" data-toggle="modal" data-target="#exampleModalLong{{ contato.pk }}">
+                      Excluir
+                    </button>
+                    <!--<p><a class="btn btn-warning" style="height:35px;" href="{% url 'contato_edit' pk=contato.pk %}">{{ contato.pk }}</a> </p>
+                </div>
+
+                <div class="modal fade" id="exampleModalLong{{ contato.pk }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Deseja Apagar Exluir <b>{{ contato.nome_contato }}</b>?</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-success" data-dismiss="modal">Não</button>
+                        <a type="button" class="btn btn-danger" href="{% url 'contato_del' pk=contato.pk %}"> Sim </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+          </div>
+        </div> 
+
+      </div> -->
 
   {% endfor %}
 
