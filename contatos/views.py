@@ -43,7 +43,7 @@ def CadastrarAnime(request):
         form = AnimeForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('cadastrar_anime')
+            return redirect('CadastrarAnime')
     else:
         form = AnimeForm()        
     return render(request, 'cadastrar_anime.html',{'form': form})
