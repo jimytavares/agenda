@@ -29,22 +29,39 @@
 
 <body class="bodyanimeted" style="background-image: linear-gradient(to right, #6424ea,  #ad00b1, #9200c5);">
 
-    <!-- 01: Menu 
+    <!-- 01:  
     ===================================================== -->
-    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
-    <div class="container">
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'contato_add' %}" style="color:white;"> <i class="fas fa-bars"></i> Adicionar Contato</a>
-          </li>
-          <li>
-            <a class="nav-link" href="{% url 'CadastrarAnime' %}" style="color:white;"> <i class="fas fa-bars"></i> Cadastrar Anime</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-    </nav>
+    <section>
+        <div class="container-fluid" style="width: 95%; border-radius:5px;">
+            <div class="row">
+
+                <!-- Title -->
+                <div class="col-lg-5" style="text-align:right;">
+                    <a href="{% url 'contato_add' %}"> <div class="btn btn-search resp-user-config" style="margin-top:-30px; background-color:#0d0d0d;"><i class="fas fa-home" style="color:white;"></i></div> </a>
+                    <a href=""> <div class="btn btn-search resp-user-config" style="margin-top:-30px; background-color:#0d0d0d;"><i class="fas fa-user" style="color:white;"></i></div> </a>
+                    <a href=""> <div class="btn btn-search resp-user-config" style="margin-top:-30px; background-color:#0d0d0d;"><i class="fas fa-database" style="color:white;"></i></div> </a>
+                    <a href=""> <div class="btn btn-search resp-user-logout" style="margin-top:-30px; background-color:#0d0d0d;"><i class="fas fa-sign-out-alt" style="color:white;"></i></div> </a>
+                    <a href=""> <div class="btn btn-search resp-user-config" style="margin-top:-30px; background-color: !important;"><i class="fas fa-pencil-square-o" style="color:white; padding-left:2px;"></i></div> </a>
+                </div>
+
+                <!-- Search & Button: Search -->
+                <div class="col-md-auto">
+
+                  <img src="../static/img/titulo.png" style="margin-top:-32px;"/>
+
+                </div>
+
+                <!-- User: Campo -->
+                <div class="col">
+                    <a href="" style="margin-left:25px;"> <div class="btn btn-search resp-user-config" style="margin-top:-30px; background-color:white;"><i class="fas fa-hourglass-half" style="color:#0d0d0d; font-size:17px; padding-top:px;"></i></div> </a>
+                    <a href=""> <div class="btn btn-search resp-user-config" style="margin-top:-30px; background-color:white !important;"><i class="fas fa-list-ol" style="color:black; padding-left:0px; font-size:18px; margin-top:2px;"></i></div> </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    
+
     
     <!-- BLOCK 02: Menu Table / Table Assistindo  
     ===================================================== -->
