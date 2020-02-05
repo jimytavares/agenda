@@ -1,0 +1,11 @@
+{% block content %}
+
+    <div class="" style="margin-top:30px; text-align:center;">
+        <form method="post" class="post-form">{% csrf_token %}
+            {{ form.as_ul }}
+            <button type="submit" class="save btn btn-primary"> enviar </button>
+        </form>
+    </div>
+
+{% endblock %}
+

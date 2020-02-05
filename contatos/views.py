@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect, get_object_or_404
 #from django.http import HttpResponse
 from .models import Contato, CadastrarAnime
-from .forms import ContatoForm, AnimeForm
+from .forms import ContatoForm, AnimeForm, GastosForm
 
 # Create your views here.
 
@@ -47,3 +47,17 @@ def CadastrarAnime(request):
     else:
         form = AnimeForm()        
     return render(request, 'cadastrar_anime.html',{'form': form})
+
+def index(request):
+    return render(request, 'index.html')
+
+def CadastrarGastos(request):
+    title_cad_anime = "Cadastrar Gastos"
+    if request.method == "POST":
+        form = GastosForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('CadastrarGastos')
+    else:
+        form = GastosForm()        
+    return render(request, 'cadastrar_gastos.html',{'form': form})

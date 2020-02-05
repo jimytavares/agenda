@@ -1,5 +1,5 @@
 from django import forms
-from .models import Contato, CadastrarAnime
+from .models import Contato, CadastrarAnime, CadastrarGastos
 
 
 class ContatoForm(forms.ModelForm):
@@ -14,3 +14,10 @@ class AnimeForm(forms.ModelForm):
     class Meta: 
         model = CadastrarAnime
         fields = ('nome_anime', 'temporada')
+        
+        
+class GastosForm(forms.ModelForm):
+    
+    class Meta:
+        model = CadastrarGastos
+        fields = ('nome_produto', 'valor', 'parcela', 'comentario')

@@ -19,3 +19,11 @@ class CadastrarAnime(models.Model):
     def __str__ (self):
         return self.nome_anime
     
+class CadastrarGastos(models.Model):
+    nome_produto = models.CharField(max_length=50, verbose_name='Nome Produto')
+    valor = models.CharField(max_length=11, verbose_name='Valor')
+    parcela = models.CharField(max_length=11, verbose_name='Parcelas')
+    comentario = models.CharField(max_length=11, verbose_name='Comentario')
+    
+    def __str__(self):
+        return self.nome_produto
