@@ -1,7 +1,7 @@
-{% load static %}
-
 <!DOCTYPE html>
 <html lang="pt-br">
+{% load static %}
+{% load widget_tweaks %}
     <head>
         <title>{% block title %} Jhin {% endblock %}</title>
         <meta charset="utf-8">
@@ -16,6 +16,16 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
         <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
         
+        {% block styles %}
+            <style> 
+                #id_nome_produto{border-radius: 4px; border-color:darkgray; border-style: solid; border-width: 1px; height: 32px;}
+                #id_valor{border-radius: 4px; border-color:darkgray; border-style: solid; border-width: 1px; height: 32px;}
+                #id_parcela{border-radius: 4px; border-color:darkgray; border-style: solid; border-width: 1px; height: 32px;}
+                #id_comentario{border-radius: 4px; border-color:darkgray; border-style: solid; border-width: 1px; height: 32px;}
+                label{color:; font-family: 'Poppins', sans-serif;}
+            </style>
+        {% endblock %}
+        
     </head>
     <body style="background-image: url('../static/img/wallindex.jpg'); background-size: ;">
         
@@ -29,19 +39,65 @@
                 JhimyLindo
             </div>
             <div class="col">
-                b
+                
             </div>
             <div class="col">
-                c
+                
             </div>
         </div>
         
-        <div class="row" style="background-color:red; width:80%; margin-left:30px;">
             
-            {% block content %}
-            {% endblock %}
+        {% block content %}
+            <div class="" style="margin-top:100px; margin-left:9%; text-align:center; border-color: red; height:180px; width:65%; background-color:white; border-radius: 5px;">
+                
+                <div class="row" style="width: 90%; text-align: left; margin-left:10%; padding-top: 16px !important; height:70px; font-family: 'Poppins', sans-serif;">
+                    <div class="col">
+                        <h4>Compras</h4>
+                    </div>
+                    <div class="col">
+                        <div class="row">
+                            <div class="col-md-auto">
+                                <p> Parcelas:</p>
+                            </div>
+                            <div class="col-md-auto">
+                                <p style="color:red;">10</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <form method="post" class="post-form">{% csrf_token %}
+                    <div class="row" style="margin-left: 45px;">
+                        <div class="col-md-auto">
+                            <label for="exampleInputEmail1"> <i class="fas fa-shopping-basket"></i> Nome do Produto:</label><br>
+                            {% render_field form.nome_produto %}
+                        </div>
+                        <div class="col-md-auto">
+                            <label for="exampleInputEmail1"> <i class="far fa-money-bill-alt"></i> Preço:</label><br>
+                            {% render_field form.valor %}
+                        </div>
+                        <div class="col-md-auto">
+                            <label for="exampleInputEmail1"> <i class="far fa-credit-card"></i> Parcelado(?):</label><br>
+                            {% render_field form.parcela %}
+                        </div>
+                        <div class="col-md-auto">
+                            <label for="exampleInputEmail1"> <i class="far fa-comments"></i> Comentário:</label><br>
+                            {% render_field form.comentario %}
+                        </div>
+                        <div>
+                            <button type="submit" class="save btn btn-success" style="width: 90px; margin-top:30px; height: 35px; margin-left: 15PX;"> Salvar </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        {% endblock %}
             
-        </div>
+        
+        {% block scripts %}
+            <!-- Bootstrap core JavaScript -->
+            <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+            <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+        {% endblock %}
         
     </body>
 </html>

@@ -49,7 +49,15 @@ def CadastrarAnime(request):
     return render(request, 'cadastrar_anime.html',{'form': form})
 
 def index(request):
-    return render(request, 'index.html')
+    form = GastosForm()
+    if request.method == "POST":
+        form = GastosForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('CadastrarGastos')
+    else:
+        form = GastosForm()   
+    return render(request, 'index.html',{'form': form})
 
 def CadastrarGastos(request):
     title_cad_anime = "Cadastrar Gastos"
